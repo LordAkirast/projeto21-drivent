@@ -4,10 +4,16 @@ import { notFoundError } from '@/errors';
 import { addressRepository, CreateAddressParams, enrollmentRepository, CreateEnrollmentParams } from '@/repositories';
 import { exclude } from '@/utils/prisma-utils';
 
-// TODO - Receber o CEP por parâmetro nesta função.
-async function getAddressFromCEP() {
-  // FIXME: está com CEP fixo!
-  const result = await request.get(`${process.env.VIA_CEP_API}/37440000/json/`);
+// TODO - Receber o CEP por parâmetro nesta função. NÃO SEI SE É ISSO
+async function getAddressFromCEP(CEP: Number) {
+  // FIXME: Provavelmente está passando o CEP de maneira errada
+
+
+  /// O QUE EU NÃO SEI:
+  /// ONDE QUE VAI O REQ.BODY? COOMO QUE EU PUXO ELE. 
+  
+
+  const result = await request.get(`${process.env.VIA_CEP_API}/${CEP}/json/`);
 
   // TODO: Tratar regras de negócio e lanças eventuais erros
 
